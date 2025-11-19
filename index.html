@@ -4,29 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplikasi Surat</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="oiu.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <div id="login-page" class="page active">
-        <div class="login-container">
-            <h1>Selamat Datang</h1>
-            <p>Aplikasi Administrasi Surat</p>
-            <div class="input-group">
-                <i class="fas fa-user"></i>
-                <input type="text" id="username" placeholder="Nama Pengguna" required>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" id="password" placeholder="Kata Sandi" required>
-            </div>
-            <button id="login-btn" class="btn primary-btn">MASUK</button>
-            <p class="footer-text">Gunakan 'admin' untuk kedua field.</p>
-        </div>
-    </div>
-
-    <div id="dashboard-page" class="page hidden">
+    <div id="dashboard-page" class="page active"> 
         <header>
             <nav class="sidebar">
                 <h2><i class="fas fa-envelope-open-text"></i> Surat App</h2>
@@ -34,14 +17,13 @@
                 <button class="nav-btn" data-target="input-masuk"><i class="fas fa-inbox"></i> Input Surat Masuk</button>
                 <button class="nav-btn" data-target="input-keluar"><i class="fas fa-paper-plane"></i> Input Surat Keluar</button>
                 <button class="nav-btn" data-target="lihat-surat"><i class="fas fa-list-alt"></i> Lihat Semua Surat</button>
-                <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Keluar</button>
             </nav>
         </header>
 
         <main class="content">
 
             <section id="beranda" class="content-section active-section">
-                <h2>Selamat Datang di Dashboard Surat!</h2>
+                <h2>Selamat Datang di Aplikasi Input Surat!</h2>
                 <p>Silakan pilih menu di samping untuk mulai mengelola surat.</p>
                 <div class="stats-grid">
                     <div class="stat-card"><i class="fas fa-download"></i><span>Total Masuk:</span> <span id="count-masuk">0</span></div>
@@ -88,7 +70,11 @@
             </section>
 
             <section id="lihat-surat" class="content-section hidden-section">
-                <h2><i class="fas fa-list-alt"></i> Daftar Surat (Masuk & Keluar)</h2>
+                <h2><i class="fas fa-list-alt"></i> Daftar Surat Masuk & Keluar</h2>
+                
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Cari No. Surat atau Perihal..." onkeyup="filterSurat()">
+                </div>
                 
                 <h3>Surat Masuk <span class="badge badge-success" id="badge-masuk">0</span></h3>
                 <table id="tabel-masuk">
@@ -99,6 +85,7 @@
                             <th>Asal</th>
                             <th>Tanggal</th>
                             <th>Perihal</th>
+                            <th>Aksi</th> 
                         </tr>
                     </thead>
                     <tbody>
@@ -114,6 +101,7 @@
                             <th>Tujuan</th>
                             <th>Tanggal</th>
                             <th>Perihal</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -123,6 +111,6 @@
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script src="poi.js"></script>
 </body>
 </html>
